@@ -84,13 +84,13 @@ public class Rectangle : INotifyPropertyChanged
 
     
     /// <summary>
-    /// Обработчики которые нужно вызвать при изменении.
+    /// Обработчики которые нужно вызвать при изменении свойств прямоугольника.
     /// </summary>
-    public event PropertyChangedEventHandler? PropertyChanged; 
+    public event PropertyChangedEventHandler? PropertyChanged;
 
 
     /// <summary>
-    /// Вызывать обработчики которые подписаны на изменение свойств.
+    /// Вызывать обработчики которые подписаны на изменение свойств прямоугольника.
     /// </summary>
     /// <param name="propertyName">Название свойства.</param>
     public void RaisePropertyChanged(string propertyName)
