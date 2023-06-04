@@ -5,47 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIExample"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Площадь прямоугольника"
         Height="320" Width="400">
+
+    <Window.Resources>
+
+        <ControlTemplate x:Key="validationFailed">
+            <StackPanel Orientation="Horizontal">
+                <Border BorderBrush="Red" BorderThickness="2">
+                    <AdornedElementPlaceholder />
+                </Border>
+                <TextBlock Foreground="Red" FontSize="20" FontWeight="Bold">!</TextBlock>
+            </StackPanel>
+        </ControlTemplate>
+
+    </Window.Resources>
 
     <Grid Background="#FF73AD53">
         <StackPanel>
-            <StackPanel Margin="0, 0, 0, 10">
-                <Label Content="Сумма вложений"
-                       Width="370" Height="35"
+            <StackPanel Margin="20, 0, 20, 10">
+                <Label Content="Длина"
+                       Height="35"
                        FontSize="17"
                        Foreground="White"/>
 
-                <TextBox Width="360" Height="25"
+                <TextBox Height="25"
                          BorderThickness="0,0,0,3"
                          BorderBrush="#FF2C7749"
-                         FontSize="16"/>
+                         FontSize="16"
+                         Text="{Binding Width,
+                                ValidatesOnExceptions=True,
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Validation.ErrorTemplate="{StaticResource validationFailed}"/>
             </StackPanel>
 
-            <StackPanel Margin="0, 0, 0, 10">
-                <Label Content="Процентная ставка"
-                       Width="370" Height="35"
+            <StackPanel Margin="20, 0, 20, 10">
+                <Label Content="Высота"
+                       Height="35"
                        FontSize="17"
                        Foreground="White"/>
 
-                <TextBox Width="360" Height="25"
+                <TextBox Height="25"
                          BorderThickness="0,0,0,3"
                          BorderBrush="#FF2C7749"
-                         FontSize="16"/>
+                         FontSize="16"
+                         Text="{Binding Height,
+                                ValidatesOnExceptions=True,
+                                UpdateSourceTrigger=PropertyChanged}"
+                         Validation.ErrorTemplate="{StaticResource validationFailed}"/>
             </StackPanel>
 
-            <StackPanel Margin="0, 0, 0, 10">
 
-                <Label Content="Количество периодов"
-                       Width="370" Height="35"
-                       FontSize="17"
-                       Foreground="White"/>
+            <Label Content="Площадь прямоугольника:"
+                   FontSize="17"
+                   Foreground="White"
+                   HorizontalContentAlignment="Center"/>
 
-                <TextBox Width="360" Height="24"
-                         BorderThickness="0,0,0,3"
-                         BorderBrush="#FF2C7749"
-                         FontSize="16"/>
-            </StackPanel>
+            <TextBlock x:Name="TextBlock_Result"
+                       FontSize="20"
+                       Foreground="White"
+                       TextAlignment="Center"
+                       Height="37"
+                       Text="{Binding Area}"/>
         </StackPanel>
     </Grid>
 
